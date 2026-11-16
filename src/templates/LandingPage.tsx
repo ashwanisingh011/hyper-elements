@@ -1,4 +1,4 @@
-import { Column, Grid, Heading, Page, Row, Section, Text } from "@hyper-elements/react";
+import { Column, Grid, Heading, Page, Row, Text } from "@hyper-elements/react";
 import { BrandHeader } from "../components/BrandHeader.js";
 import { CtaButton } from "../components/CtaButton.js";
 import { FaqItem } from "../components/FaqItem.js";
@@ -11,23 +11,32 @@ import { eventData, faqs, pricingTiers, schedule, speakers } from "../data.js";
 import { currentTheme } from "../tokens.js";
 
 export function LandingPage() {
+  const isMidnight = currentTheme.name === "midnight";
+  const bg = currentTheme.colors.bg;
+  const surface = currentTheme.colors.surface;
+  const surfaceAlt = currentTheme.colors.surfaceAlt;
+  const text = currentTheme.colors.text;
+  const muted = currentTheme.colors.textMuted;
+  const border = currentTheme.colors.border;
+  const accent = currentTheme.colors.accent;
+
   return (
     <Page
       width={1120}
-      title={`${eventData.name} — Lisbon, Portugal`}
+      title={`${eventData.name} — Lisbon, Portugal // 2027`}
       description={eventData.tagline}
       style={{
-        backgroundColor: currentTheme.colors.bg,
-        color: currentTheme.colors.text,
+        backgroundColor: bg,
+        color: text,
         fontFamily: currentTheme.fonts.body,
         gap: 64,
       }}
     >
       {/* 1. Header Bar */}
       <BrandHeader
-        rightText="March 18–19, 2027"
+        rightText="38°42'N 9°08'W · LISBON"
         ctaHref="#tickets"
-        ctaText="Get tickets"
+        ctaText="Reserve Pass"
         variant="web"
       />
 
@@ -36,58 +45,60 @@ export function LandingPage() {
         style={{
           alignItems: "center",
           textAlign: "center",
-          padding: [64, 24, 72, 24],
-          backgroundColor: currentTheme.colors.surface,
-          border: `1px solid ${currentTheme.colors.border}`,
-          borderRadius: currentTheme.radius * 1.5,
+          padding: [72, 32, 80, 32],
+          backgroundColor: surface,
+          border: `1.5px solid ${border}`,
+          borderRadius: currentTheme.radius * 2,
           gap: 32,
           width: "100%",
         }}
       >
-        <Column style={{ alignItems: "center", gap: 16, maxWidth: 840 }}>
+        <Column style={{ alignItems: "center", gap: 18, maxWidth: 880 }}>
           <Column
             style={{
-              backgroundColor: currentTheme.colors.surfaceAlt,
-              border: `1px solid ${currentTheme.colors.border}`,
-              borderRadius: 30,
-              padding: "6px 18px",
+              backgroundColor: surfaceAlt,
+              border: `1px solid ${border}`,
+              borderRadius: 4,
+              padding: "6px 16px",
             }}
           >
             <Text
               style={{
-                fontSize: currentTheme.type.small,
+                fontFamily: currentTheme.fonts.mono,
+                fontSize: 11,
                 fontWeight: 700,
-                color: currentTheme.colors.accent,
+                color: accent,
                 letterSpacing: 2,
                 textTransform: "uppercase",
               }}
             >
-              Lisbon · March 18–19, 2027
+              // LISBON · MARCH 18–19, 2027 · THE FOUNDRY
             </Text>
           </Column>
 
           <Heading
             level={1}
             style={{
-              fontSize: currentTheme.type.h1,
-              fontWeight: 900,
-              color: currentTheme.colors.text,
-              lineHeight: 1.1,
-              letterSpacing: -1,
+              fontFamily: currentTheme.fonts.heading,
+              fontSize: 72,
+              fontWeight: 700,
+              color: text,
+              lineHeight: 1.05,
+              letterSpacing: -1.5,
               mobile: {
-                fontSize: 36,
+                fontSize: 42,
               },
             }}
           >
-            {eventData.name}
+            Building the next decade of software.
           </Heading>
 
           <Text
             style={{
               fontSize: 20,
               lineHeight: 1.5,
-              color: currentTheme.colors.textMuted,
-              maxWidth: 680,
+              color: muted,
+              maxWidth: 720,
               mobile: {
                 fontSize: 16,
               },
@@ -99,11 +110,11 @@ export function LandingPage() {
 
         {/* Hero CTAs */}
         <Row stackOnMobile={true} style={{ gap: 16, justifyContent: "center", alignItems: "center" }}>
-          <CtaButton href="#tickets" variant="primary">
+          <CtaButton href="#tickets" variant="accent">
             {eventData.ctaText}
           </CtaButton>
           <CtaButton href="#schedule" variant="secondary">
-            View schedule
+            View Schedule // Day 1
           </CtaButton>
         </Row>
 
@@ -114,8 +125,8 @@ export function LandingPage() {
           style={{
             width: "100%",
             gap: 16,
-            padding: [32, 0, 0, 0],
-            border: { top: `1px solid ${currentTheme.colors.border}` },
+            padding: [36, 0, 0, 0],
+            border: { top: `1px solid ${border}` },
           }}
         >
           {eventData.stats.map((stat, i) => (
@@ -123,20 +134,22 @@ export function LandingPage() {
               <Heading
                 level={3}
                 style={{
-                  fontSize: 32,
-                  fontWeight: 800,
-                  color: currentTheme.colors.accent,
-                  lineHeight: 1.1,
+                  fontFamily: currentTheme.fonts.heading,
+                  fontSize: 38,
+                  fontWeight: 700,
+                  color: accent,
+                  lineHeight: 1,
                 }}
               >
                 {stat.value}
               </Heading>
               <Text
                 style={{
-                  fontSize: currentTheme.type.small,
-                  fontWeight: 600,
-                  color: currentTheme.colors.textMuted,
-                  letterSpacing: 1,
+                  fontFamily: currentTheme.fonts.mono,
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: muted,
+                  letterSpacing: 1.5,
                   textTransform: "uppercase",
                 }}
               >
@@ -150,14 +163,15 @@ export function LandingPage() {
       {/* 3. Speakers Section */}
       <Column style={{ width: "100%", gap: 32 }}>
         <SectionTitle
-          eyebrow="Keynotes & Panels"
-          title="Industry leaders shaping modern software"
-          subtitle="Learn firsthand from engineers and designers leading high-impact teams worldwide."
+          eyebrow="01 // CURATED KEYNOTES"
+          title="Engineers & Designers Shaping Systems at Scale"
+          subtitle="Direct technical breakdowns from leaders authoring architectures that outlive hype cycles."
         />
         <Grid columns={4} stackOnMobile={true} style={{ gap: 20, width: "100%" }}>
           {speakers.map((speaker) => (
             <SpeakerCard
               key={speaker.id}
+              id={speaker.id}
               name={speaker.name}
               role={speaker.role}
               company={speaker.company}
@@ -170,14 +184,14 @@ export function LandingPage() {
       {/* 4. Schedule Section */}
       <Column id="schedule" style={{ width: "100%", gap: 32 }}>
         <SectionTitle
-          eyebrow="Curated Agenda"
+          eyebrow="02 // AGENDA TIMELINE"
           title="Day 1 Schedule: Thursday, March 18"
-          subtitle="Doors open at 08:30 for morning coffee and check-in. Keynotes begin promptly at 09:30."
+          subtitle="Morning access and badging begin at 08:30 GMT. Opening address commences promptly at 09:30 GMT."
         />
         <Column
           style={{
-            backgroundColor: currentTheme.colors.surface,
-            border: `1px solid ${currentTheme.colors.border}`,
+            backgroundColor: surface,
+            border: `1px solid ${border}`,
             borderRadius: currentTheme.radius,
             overflow: "hidden",
             width: "100%",
@@ -198,9 +212,9 @@ export function LandingPage() {
       {/* 5. Pricing Section */}
       <Column id="tickets" style={{ width: "100%", gap: 32 }}>
         <SectionTitle
-          eyebrow="Passes & Registration"
-          title="Simple, transparent conference pricing"
-          subtitle="All passes include full access to the conference venue, catering, and post-event talk recordings."
+          eyebrow="03 // DELEGATE ACCESS"
+          title="Transparent Conference Passes"
+          subtitle="Every registration grants full venue access, catered lunches, keynote recordings, and community tables."
         />
         <Grid columns={3} stackOnMobile={true} style={{ gap: 24, width: "100%" }}>
           {pricingTiers.map((tier, idx) => (
@@ -219,9 +233,9 @@ export function LandingPage() {
       {/* 6. FAQ Section */}
       <Column style={{ width: "100%", gap: 32 }}>
         <SectionTitle
-          eyebrow="Got Questions?"
+          eyebrow="04 // VENUE & LOGISTICS"
           title="Frequently Asked Questions"
-          subtitle="Everything you need to know about ticketing, accessibility, transfers, and venue logistics."
+          subtitle="Essential details regarding accessibility, badge transfers, catering, and venue transit in Lisbon."
         />
         <Column style={{ gap: 16, width: "100%" }}>
           {faqs.map((faq, idx) => (
@@ -230,27 +244,41 @@ export function LandingPage() {
         </Column>
       </Column>
 
-      {/* 7. Final CTA Band */}
+      {/* 7. Final Call to Action */}
       <Column
         style={{
           width: "100%",
-          backgroundColor: currentTheme.colors.surfaceAlt,
-          border: `1px solid ${currentTheme.colors.accent}`,
-          borderRadius: currentTheme.radius * 1.5,
+          backgroundColor: surfaceAlt,
+          border: `1.5px solid ${accent}`,
+          borderRadius: currentTheme.radius * 2,
           padding: [56, 32],
-          gap: 24,
+          gap: 22,
           alignItems: "center",
           textAlign: "center",
         }}
       >
+        <Text
+          style={{
+            fontFamily: currentTheme.fonts.mono,
+            fontSize: 11,
+            fontWeight: 700,
+            color: accent,
+            letterSpacing: 2,
+            textTransform: "uppercase",
+          }}
+        >
+          // CAPACITY STRICTLY LIMITED TO 2,000 ATTENDEES
+        </Text>
         <Heading
           level={2}
           style={{
-            fontSize: currentTheme.type.h2,
-            fontWeight: 800,
-            color: currentTheme.colors.text,
+            fontFamily: currentTheme.fonts.heading,
+            fontSize: 48,
+            fontWeight: 700,
+            color: text,
+            lineHeight: 1.1,
             mobile: {
-              fontSize: 26,
+              fontSize: 30,
             },
           }}
         >
@@ -259,15 +287,15 @@ export function LandingPage() {
         <Text
           style={{
             fontSize: currentTheme.type.body,
-            color: currentTheme.colors.textMuted,
+            color: muted,
             maxWidth: 580,
             lineHeight: 1.5,
           }}
         >
-          Two days of intensive learning, architecture breakdowns, and direct conversations with peers from across the globe.
+          Two days of deep technical dialogue, architectural post-mortems, and lasting connections on the Atlantic riverfront.
         </Text>
-        <CtaButton href="#tickets" variant="primary">
-          {eventData.ctaText}
+        <CtaButton href="#tickets" variant="accent">
+          {eventData.ctaText} // Reserve Now
         </CtaButton>
       </Column>
 

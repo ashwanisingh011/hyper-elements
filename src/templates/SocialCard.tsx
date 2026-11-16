@@ -3,70 +3,93 @@ import { eventData } from "../data.js";
 import { currentTheme } from "../tokens.js";
 
 export function SocialCard() {
-  const logoSrc = currentTheme.name === "daylight" ? "assets/logo-daylight.svg" : "assets/logo.svg";
+  const isMidnight = currentTheme.name === "midnight";
+  const bg = currentTheme.colors.bg;
+  const surface = currentTheme.colors.surface;
+  const text = currentTheme.colors.text;
+  const muted = currentTheme.colors.textMuted;
+  const border = currentTheme.colors.border;
+  const accent = currentTheme.colors.accent;
+  const logoSrc = isMidnight ? "assets/logo.svg" : "assets/logo-daylight.svg";
 
   return (
     <Canvas
       width={1200}
       height={630}
-      title={`${eventData.name} — Social Card`}
+      title={`${eventData.name} — Official Social Card`}
       style={{
-        backgroundColor: currentTheme.colors.bg,
-        color: currentTheme.colors.text,
-        fontFamily: currentTheme.fonts.heading,
-        padding: 64,
+        backgroundColor: bg,
+        color: text,
+        fontFamily: currentTheme.fonts.body,
+        padding: [48, 56],
         justifyContent: "space-between",
       }}
     >
-      {/* Top Bar: Brand Logo & Dates Pill */}
+      {/* 1. Header Bar: Logo & Lisbon Coordinates Pill */}
       <Row stackOnMobile={false} style={{ justifyContent: "space-between", alignItems: "center", width: "100%" }}>
         <Image
-          src={{ src: logoSrc, width: 280, height: 48 }}
+          src={{ src: logoSrc, width: 320, height: 44 }}
           alt={eventData.name}
-          style={{ width: 240, height: 41 }}
+          style={{ width: 260, height: 36 }}
         />
 
         <Column
           style={{
-            backgroundColor: currentTheme.colors.surfaceAlt,
-            border: `1px solid ${currentTheme.colors.border}`,
-            borderRadius: 24,
-            padding: "8px 20px",
+            backgroundColor: surface,
+            border: `1px solid ${border}`,
+            borderRadius: 4,
+            padding: "8px 16px",
           }}
         >
           <Text
             style={{
-              fontSize: 14,
-              fontWeight: 800,
-              color: currentTheme.colors.accent,
+              fontFamily: currentTheme.fonts.mono,
+              fontSize: 12,
+              fontWeight: 700,
+              color: accent,
               letterSpacing: 2,
               textTransform: "uppercase",
             }}
           >
-            LISBON · MARCH 18–19, 2027
+            38°42'N 9°08'W · LISBON
           </Text>
         </Column>
       </Row>
 
-      {/* Center Body: Headline and Tagline */}
-      <Column style={{ gap: 24, maxWidth: 1040 }}>
-        <Column
-          style={{
-            width: 80,
-            height: 4,
-            backgroundColor: currentTheme.colors.accent,
-            borderRadius: 2,
-          }}
-        />
+      {/* 2. Main Center Poster Composition */}
+      <Column style={{ gap: 20, maxWidth: 1040 }}>
+        {/* Technical Accent Rule */}
+        <Row stackOnMobile={false} style={{ gap: 12, alignItems: "center" }}>
+          <Column
+            style={{
+              width: 36,
+              height: 3,
+              backgroundColor: accent,
+            }}
+          />
+          <Text
+            style={{
+              fontFamily: currentTheme.fonts.mono,
+              fontSize: 12,
+              fontWeight: 700,
+              letterSpacing: 2,
+              color: accent,
+              textTransform: "uppercase",
+            }}
+          >
+            GLOBAL ENGINEERING SUMMIT // MARCH 18–19, 2027
+          </Text>
+        </Row>
 
         <Heading
           level={1}
           style={{
-            fontSize: 68,
-            fontWeight: 900,
-            lineHeight: 1.05,
-            color: currentTheme.colors.text,
+            fontFamily: currentTheme.fonts.heading,
+            fontSize: 76,
+            fontWeight: 700,
+            lineHeight: 1.02,
             letterSpacing: -1.5,
+            color: text,
           }}
         >
           Building the next decade of software.
@@ -74,57 +97,73 @@ export function SocialCard() {
 
         <Text
           style={{
-            fontSize: 24,
-            lineHeight: 1.4,
-            color: currentTheme.colors.textMuted,
-            maxWidth: 820,
+            fontSize: 22,
+            lineHeight: 1.45,
+            color: muted,
+            maxWidth: 860,
           }}
         >
-          Two days. One stage. 40 industry-defining keynotes, deep architectural breakdowns, and 2,000 engineers in Lisbon.
+          Two days on the Lisbon waterfront. Forty architectural breakdowns, two thousand engineers, and one stage at The Foundry.
         </Text>
       </Column>
 
-      {/* Bottom Bar: Stats Pill & URL */}
-      <Row
-        stackOnMobile={false}
-        style={{
-          justifyContent: "space-between",
-          alignItems: "center",
-          width: "100%",
-          border: { top: `1px solid ${currentTheme.colors.border}` },
-          padding: [24, 0, 0, 0],
-        }}
-      >
-        <Row stackOnMobile={false} style={{ gap: 32, alignItems: "center" }}>
-          <Text style={{ fontSize: 16, fontWeight: 700, color: currentTheme.colors.accent }}>
-            2,000 ATTENDEES
-          </Text>
-          <Text style={{ fontSize: 16, fontWeight: 700, color: currentTheme.colors.textMuted }}>
-            •
-          </Text>
-          <Text style={{ fontSize: 16, fontWeight: 700, color: currentTheme.colors.accent }}>
-            40 SPEAKERS
-          </Text>
-          <Text style={{ fontSize: 16, fontWeight: 700, color: currentTheme.colors.textMuted }}>
-            •
-          </Text>
-          <Text style={{ fontSize: 16, fontWeight: 700, color: currentTheme.colors.accent }}>
-            3 STAGES
-          </Text>
-        </Row>
-
-        <Text
+      {/* 3. Bottom Strip: Speaker Lineup & Monospace Stats */}
+      <Column style={{ gap: 14, width: "100%" }}>
+        <Row
+          stackOnMobile={false}
           style={{
-            fontSize: 16,
-            fontWeight: 800,
-            color: currentTheme.colors.text,
-            letterSpacing: 1,
-            fontFamily: currentTheme.fonts.mono,
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+            border: { top: `1px solid ${border}` },
+            padding: [20, 0, 0, 0],
           }}
         >
-          northwind.example/2027
-        </Text>
-      </Row>
+          <Row stackOnMobile={false} style={{ gap: 28, alignItems: "center" }}>
+            <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 13, fontWeight: 700, color: text }}>
+              [01] MAYA OKONKWO
+            </Text>
+            <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 13, fontWeight: 700, color: muted }}>
+              /
+            </Text>
+            <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 13, fontWeight: 700, color: text }}>
+              [02] DANIEL REYES
+            </Text>
+            <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 13, fontWeight: 700, color: muted }}>
+              /
+            </Text>
+            <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 13, fontWeight: 700, color: text }}>
+              [03] PRIYA NAIR
+            </Text>
+            <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 13, fontWeight: 700, color: muted }}>
+              /
+            </Text>
+            <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 13, fontWeight: 700, color: text }}>
+              [04] JONAS LINDQVIST
+            </Text>
+          </Row>
+
+          <Column
+            style={{
+              backgroundColor: accent,
+              borderRadius: 4,
+              padding: "6px 14px",
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: currentTheme.fonts.mono,
+                fontSize: 12,
+                fontWeight: 800,
+                color: currentTheme.colors.accentText,
+                letterSpacing: 1,
+              }}
+            >
+              2,000 SEATS // THE FOUNDRY
+            </Text>
+          </Column>
+        </Row>
+      </Column>
     </Canvas>
   );
 }

@@ -26,22 +26,23 @@ export function PriceCard({
       style={{
         backgroundColor: highlighted ? currentTheme.colors.surfaceAlt : currentTheme.colors.surface,
         border: highlighted
-          ? `2px solid ${currentTheme.colors.accent}`
+          ? `1.5px solid ${currentTheme.colors.accent}`
           : `1px solid ${currentTheme.colors.border}`,
         borderRadius: currentTheme.radius,
-        padding: 32,
-        gap: 20,
+        padding: 28,
+        gap: 22,
         flex: 1,
         justifyContent: "space-between",
       }}
     >
-      <Column style={{ gap: 12 }}>
+      <Column style={{ gap: 14 }}>
         <Row stackOnMobile={false} style={{ justifyContent: "space-between", alignItems: "center" }}>
           <Text
             style={{
-              fontSize: currentTheme.type.body,
+              fontFamily: currentTheme.fonts.mono,
+              fontSize: 12,
               fontWeight: 700,
-              color: currentTheme.colors.text,
+              color: currentTheme.colors.textMuted,
               textTransform: "uppercase",
               letterSpacing: 1.5,
             }}
@@ -52,13 +53,14 @@ export function PriceCard({
             <Column
               style={{
                 backgroundColor: currentTheme.colors.accent,
-                borderRadius: 20,
-                padding: "4px 12px",
+                borderRadius: 4,
+                padding: "3px 10px",
               }}
             >
               <Text
                 style={{
-                  fontSize: 11,
+                  fontFamily: currentTheme.fonts.mono,
+                  fontSize: 10,
                   fontWeight: 800,
                   color: currentTheme.colors.accentText,
                   letterSpacing: 1,
@@ -74,26 +76,35 @@ export function PriceCard({
         <Heading
           level={2}
           style={{
-            fontSize: 44,
-            fontWeight: 800,
+            fontFamily: currentTheme.fonts.heading,
+            fontSize: 48,
+            fontWeight: 700,
             color: currentTheme.colors.text,
-            lineHeight: 1.1,
+            lineHeight: 1,
           }}
         >
           {price}
         </Heading>
 
-        <Column style={{ gap: 10, padding: [12, 0] }}>
+        <Column style={{ gap: 10, padding: [10, 0] }}>
           {features.map((feature, idx) => (
-            <Row key={idx} stackOnMobile={false} style={{ gap: 10, alignItems: "center" }}>
-              <Text style={{ color: currentTheme.colors.accent, fontWeight: 800, fontSize: 14 }}>
-                ✓
+            <Row key={idx} stackOnMobile={false} style={{ gap: 10, alignItems: "start" }}>
+              <Text
+                style={{
+                  fontFamily: currentTheme.fonts.mono,
+                  color: currentTheme.colors.accent,
+                  fontWeight: 700,
+                  fontSize: 12,
+                  padding: [2, 0, 0, 0],
+                }}
+              >
+                +
               </Text>
               <Text
                 style={{
                   fontSize: currentTheme.type.small,
                   color: currentTheme.colors.textMuted,
-                  lineHeight: 1.4,
+                  lineHeight: 1.45,
                 }}
               >
                 {feature}
@@ -105,7 +116,7 @@ export function PriceCard({
 
       <CtaButton
         href={ctaHref}
-        variant={highlighted ? "primary" : "secondary"}
+        variant={highlighted ? "accent" : "secondary"}
         fullWidth={true}
       >
         {ctaText}

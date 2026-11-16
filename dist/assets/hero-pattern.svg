@@ -1,24 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" fill="none">
   <defs>
-    <radialGradient id="glow1" cx="30%" cy="40%" r="50%">
-      <stop offset="0%" stop-color="#6C5CE7" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#0B1020" stop-opacity="0"/>
+    <radialGradient id="nocturneGlow" cx="25%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#4361EE" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#080B11" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glow2" cx="75%" cy="30%" r="45%">
-      <stop offset="0%" stop-color="#00D1B2" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#0B1020" stop-opacity="0"/>
+    <radialGradient id="limeGlow" cx="80%" cy="25%" r="50%">
+      <stop offset="0%" stop-color="#D4F64E" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#080B11" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
-      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#2A3562" stroke-width="0.75" stroke-opacity="0.5"/>
-      <circle cx="0" cy="0" r="1.5" fill="#6C5CE7" fill-opacity="0.6"/>
+    <pattern id="precisionGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E2740" stroke-width="0.75" stroke-opacity="0.6"/>
+      <circle cx="0" cy="0" r="1" fill="#D4F64E" fill-opacity="0.4"/>
     </pattern>
   </defs>
-  <rect width="1200" height="600" fill="url(#glow1)"/>
-  <rect width="1200" height="600" fill="url(#glow2)"/>
-  <rect width="1200" height="600" fill="url(#grid)" opacity="0.8"/>
-  <!-- Constellation Accent Lines -->
-  <path d="M120 180 L280 240 L450 160 L600 280 L800 200 L950 320" stroke="#00D1B2" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="4 6"/>
-  <circle cx="280" cy="240" r="3" fill="#00D1B2" fill-opacity="0.6"/>
-  <circle cx="450" cy="160" r="4" fill="#6C5CE7" fill-opacity="0.7"/>
-  <circle cx="800" cy="200" r="3.5" fill="#00D1B2" fill-opacity="0.6"/>
+  <rect width="1200" height="640" fill="#080B11"/>
+  <rect width="1200" height="640" fill="url(#nocturneGlow)"/>
+  <rect width="1200" height="640" fill="url(#limeGlow)"/>
+  <rect width="1200" height="640" fill="url(#precisionGrid)"/>
+  
+  <!-- Architectural Lisbon Riverfront & Tagus Latitude Grid -->
+  <g stroke="#1E2740" stroke-width="1" opacity="0.6">
+    <line x1="80" y1="0" x2="80" y2="640" stroke-dasharray="4 6"/>
+    <line x1="1120" y1="0" x2="1120" y2="640" stroke-dasharray="4 6"/>
+    <line x1="0" y1="120" x2="1200" y2="120" stroke-dasharray="2 4"/>
+    <line x1="0" y1="520" x2="1200" y2="520" stroke-dasharray="2 4"/>
+  </g>
+
+  <!-- Technical Astrolabe Ring -->
+  <g transform="translate(600, 320)" opacity="0.18">
+    <circle r="220" stroke="#D4F64E" stroke-width="1" stroke-dasharray="8 12"/>
+    <circle r="180" stroke="#4361EE" stroke-width="0.8"/>
+    <circle r="140" stroke="#D4F64E" stroke-width="1.2" stroke-dasharray="3 6"/>
+    <line x1="-240" y1="0" x2="240" y2="0" stroke="#D4F64E" stroke-width="0.75"/>
+    <line x1="0" y1="-240" x2="0" y2="240" stroke="#D4F64E" stroke-width="0.75"/>
+  </g>
 </svg>

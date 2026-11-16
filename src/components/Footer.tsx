@@ -1,4 +1,4 @@
-import { Column, Divider, Span, Text } from "@hyper-elements/react";
+import { Column, Divider, Row, Span, Text } from "@hyper-elements/react";
 import { currentTheme } from "../tokens.js";
 
 interface FooterProps {
@@ -30,13 +30,26 @@ export function Footer({
       <Column style={{ gap: 8, alignItems: "center" }}>
         <Text
           style={{
-            fontSize: currentTheme.type.small,
-            fontWeight: 600,
-            color: currentTheme.colors.text,
+            fontFamily: currentTheme.fonts.mono,
+            fontSize: 12,
+            fontWeight: 700,
+            color: currentTheme.colors.accent,
+            letterSpacing: 1.5,
+            textTransform: "uppercase",
           }}
         >
-          Northwind Summit 2027 · {venueAddress}
+          Northwind Summit 2027 // 38°42'N 9°08'W
         </Text>
+
+        <Text
+          style={{
+            fontSize: currentTheme.type.small,
+            color: currentTheme.colors.textMuted,
+          }}
+        >
+          {venueAddress}
+        </Text>
+
         <Text
           style={{
             fontSize: 12,
@@ -55,6 +68,7 @@ export function Footer({
           </Span>
           .
         </Text>
+
         {variant === "email" && (
           <Text
             style={{
@@ -62,7 +76,7 @@ export function Footer({
               color: currentTheme.colors.textMuted,
             }}
           >
-            You received this email because you registered at northwind.example. Unsubscribe link placeholder.
+            Official delegate dispatch for registered participants. To transfer your registration, contact pass@northwind.example.
           </Text>
         )}
       </Column>

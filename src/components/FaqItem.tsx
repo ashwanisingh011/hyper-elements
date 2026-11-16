@@ -7,11 +7,11 @@ interface FaqItemProps {
   isLast?: boolean;
 }
 
-export function FaqItem({ question, answer, isLast = false }: FaqItemProps) {
+export function FaqItem({ question, answer }: FaqItemProps) {
   return (
     <Column
       style={{
-        padding: [20, 24],
+        padding: [22, 24],
         backgroundColor: currentTheme.colors.surface,
         border: `1px solid ${currentTheme.colors.border}`,
         borderRadius: currentTheme.radius,
@@ -22,10 +22,11 @@ export function FaqItem({ question, answer, isLast = false }: FaqItemProps) {
       <Heading
         level={4}
         style={{
-          fontSize: currentTheme.type.body,
-          fontWeight: 700,
+          fontFamily: currentTheme.fonts.heading,
+          fontSize: 20,
+          fontWeight: 600,
           color: currentTheme.colors.text,
-          lineHeight: 1.4,
+          lineHeight: 1.3,
         }}
       >
         {question}
@@ -34,7 +35,7 @@ export function FaqItem({ question, answer, isLast = false }: FaqItemProps) {
         style={{
           fontSize: currentTheme.type.small,
           color: currentTheme.colors.textMuted,
-          lineHeight: 1.5,
+          lineHeight: 1.6,
         }}
       >
         {answer}

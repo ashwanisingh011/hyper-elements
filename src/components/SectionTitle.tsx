@@ -19,7 +19,7 @@ export function SectionTitle({
   return (
     <Column
       style={{
-        gap: 10,
+        gap: 8,
         alignItems: isCentered ? "center" : "start",
         textAlign: isCentered ? "center" : "left",
         width: "100%",
@@ -28,21 +28,24 @@ export function SectionTitle({
     >
       <Text
         style={{
-          fontSize: currentTheme.type.small,
+          fontFamily: currentTheme.fonts.mono,
+          fontSize: currentTheme.type.kicker,
           fontWeight: 700,
           color: currentTheme.colors.accent,
           letterSpacing: 2,
           textTransform: "uppercase",
         }}
       >
-        {eyebrow}
+        // {eyebrow}
       </Text>
       <Heading
         level={2}
         style={{
+          fontFamily: currentTheme.fonts.heading,
           fontSize: currentTheme.type.h2,
-          lineHeight: 1.2,
-          fontWeight: 800,
+          lineHeight: 1.15,
+          fontWeight: 600,
+          letterSpacing: -0.5,
           color: currentTheme.colors.text,
           mobile: {
             fontSize: 28,
@@ -55,7 +58,7 @@ export function SectionTitle({
         <Text
           style={{
             fontSize: currentTheme.type.body,
-            lineHeight: 1.5,
+            lineHeight: 1.6,
             color: currentTheme.colors.textMuted,
             maxWidth: 640,
           }}

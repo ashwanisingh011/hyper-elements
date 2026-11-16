@@ -27,23 +27,24 @@ export function BrandHeader({
         gap: 16,
       }}
     >
-      <Column style={{ width: 220 }}>
+      <Column style={{ width: 250 }}>
         <Image
-          src={{ src: logoSrc, width: 280, height: 48 }}
+          src={{ src: logoSrc, width: 320, height: 44 }}
           alt="Northwind Summit 2027"
-          style={{ width: 200, height: 34 }}
+          style={{ width: 220, height: 30 }}
         />
       </Column>
 
       {(rightText || (ctaHref && ctaText)) && (
-        <Column style={{ alignItems: "end", gap: 6 }}>
+        <Column style={{ alignItems: "end", gap: 4 }}>
           {rightText && (
             <Text
               style={{
-                fontSize: currentTheme.type.small,
-                color: currentTheme.colors.textMuted,
-                fontWeight: 600,
-                letterSpacing: 1,
+                fontFamily: currentTheme.fonts.mono,
+                fontSize: 11,
+                color: currentTheme.colors.accent,
+                fontWeight: 700,
+                letterSpacing: 1.5,
                 textTransform: "uppercase",
               }}
             >
@@ -54,13 +55,12 @@ export function BrandHeader({
             <Link
               href={ctaHref}
               style={{
-                fontSize: currentTheme.type.small,
+                fontSize: 12,
                 fontWeight: 700,
-                color: currentTheme.colors.accent,
-                textDecoration: "none",
+                color: currentTheme.colors.text,
+                textDecoration: "underline",
                 hover: {
-                  color: currentTheme.colors.primary,
-                  textDecoration: "underline",
+                  color: currentTheme.colors.accent,
                 },
               }}
             >

@@ -15,10 +15,11 @@ export function InfoBlock({
   valueMono = false,
 }: InfoBlockProps) {
   return (
-    <Column style={{ gap: 4 }}>
+    <Column style={{ gap: 3 }}>
       <Text
         style={{
-          fontSize: 11,
+          fontFamily: currentTheme.fonts.mono,
+          fontSize: 10,
           fontWeight: 700,
           color: currentTheme.colors.textMuted,
           letterSpacing: 1.5,

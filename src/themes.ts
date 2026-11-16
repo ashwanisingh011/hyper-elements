@@ -11,6 +11,7 @@ export interface AppTheme {
     text: string;
     textMuted: string;
     border: string;
+    glow: string;
   };
   fonts: {
     heading: string;
@@ -35,30 +36,32 @@ export interface AppTheme {
     h3: number;
     body: number;
     small: number;
+    kicker: number;
   };
 }
 
 export const midnightTheme: AppTheme = {
   name: "midnight",
   colors: {
-    bg: "#0B1020",
-    surface: "#141B34",
-    surfaceAlt: "#1B2547",
-    primary: "#6C5CE7",
+    bg: "#080B11",
+    surface: "#0F1422",
+    surfaceAlt: "#161D31",
+    primary: "#4361EE",
     primaryText: "#FFFFFF",
-    accent: "#00D1B2",
-    accentText: "#04221D",
-    text: "#F5F7FF",
-    textMuted: "#A9B1CF",
-    border: "#2A3562",
+    accent: "#D4F64E", // Electric Cybernetic Chartreuse / Neon Lime
+    accentText: "#080B11",
+    text: "#F0F4FC",
+    textMuted: "#8391A8",
+    border: "#1E2740",
+    glow: "rgba(212, 246, 78, 0.12)",
   },
   fonts: {
-    heading: "Inter, Helvetica, Arial, sans-serif",
-    body: "Inter, Helvetica, Arial, sans-serif",
-    email: "Helvetica, Arial, sans-serif",
-    mono: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+    heading: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+    body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    email: "'Cormorant Garamond', Georgia, 'Times New Roman', serif",
+    mono: "'Space Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace",
   },
-  radius: 12,
+  radius: 6, // Crisp, architectural 6px corners (not generic bulbous pill cards)
   space: {
     xs: 4,
     sm: 8,
@@ -68,37 +71,39 @@ export const midnightTheme: AppTheme = {
     xxl: 96,
   },
   type: {
-    h1: 56,
-    h1Email: 32,
-    h2: 36,
-    h2Email: 24,
-    h3: 20,
+    h1: 64,
+    h1Email: 36,
+    h2: 40,
+    h2Email: 26,
+    h3: 22,
     body: 16,
     small: 13,
+    kicker: 11,
   },
 };
 
 export const daylightTheme: AppTheme = {
   name: "daylight",
   colors: {
-    bg: "#FFFFFF",
-    surface: "#F5F6FB",
-    surfaceAlt: "#ECEEF8",
-    primary: "#4F3FD0",
-    primaryText: "#FFFFFF",
-    accent: "#00A88F",
-    accentText: "#04221D",
-    text: "#101323",
-    textMuted: "#5B6280",
-    border: "#DCE0F0",
+    bg: "#FAF8F5", // Architectural Alabaster drafting paper
+    surface: "#F2EFE9",
+    surfaceAlt: "#E6E2D8",
+    primary: "#111318", // Carbon black
+    primaryText: "#FAF8F5",
+    accent: "#E63917", // International Bauhaus Vermilion / Terracotta
+    accentText: "#FFFFFF",
+    text: "#111318",
+    textMuted: "#6B675E",
+    border: "#D8D2C5",
+    glow: "rgba(230, 57, 23, 0.10)",
   },
   fonts: {
-    heading: "Inter, Helvetica, Arial, sans-serif",
-    body: "Inter, Helvetica, Arial, sans-serif",
-    email: "Helvetica, Arial, sans-serif",
-    mono: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+    heading: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+    body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    email: "'Cormorant Garamond', Georgia, 'Times New Roman', serif",
+    mono: "'Space Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace",
   },
-  radius: 12,
+  radius: 6,
   space: {
     xs: 4,
     sm: 8,
@@ -108,12 +113,13 @@ export const daylightTheme: AppTheme = {
     xxl: 96,
   },
   type: {
-    h1: 56,
-    h1Email: 32,
-    h2: 36,
-    h2Email: 24,
-    h3: 20,
+    h1: 64,
+    h1Email: 36,
+    h2: 40,
+    h2Email: 26,
+    h3: 22,
     body: 16,
     small: 13,
+    kicker: 11,
   },
 };
