@@ -14,7 +14,7 @@ Use the ready-to-paste text below when submitting your entry to the **Hyper Elem
 The Northwind Summit Launch Kit is a multi-channel digital publishing kit for a high-profile technology conference. From a single unified React component tree and design token system, it generates a responsive event landing page, an email-safe registration confirmation receipt with plain-text fallback, a print-ready DL admission pass ticket (PDF), and a high-resolution social/OpenGraph share card (1200×630 PNG). Every deliverable supports instant system-wide re-theming between dark ("midnight") and light ("daylight") modes via a single environment variable.
 
 ### Field 4: GitHub Repository
-*(Paste the URL of your public repository here, e.g., `https://github.com/your-username/northwind-summit-kit`)*
+`https://github.com/ashwanisingh011/hyper-elements.git`
 
 ### Field 5: Hyper Elements Implementation
 The project leverages `@hyper-elements/react` as its core content and rendering engine:
