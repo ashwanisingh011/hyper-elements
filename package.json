@@ -1,0 +1,27 @@
+{
+  "name": "northwind-summit-kit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsx src/build.tsx && tsx src/render-assets.ts",
+    "build:html": "tsx src/build.tsx",
+    "preview": "serve dist",
+    "theme:daylight": "THEME=daylight npm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hyper-elements/react": "^0.4.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "playwright": "^1.49.0",
+    "serve": "^14.2.4",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

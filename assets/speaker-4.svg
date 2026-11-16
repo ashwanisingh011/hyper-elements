@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0984E3"/>
+      <stop offset="100%" stop-color="#2D3436"/>
+    </linearGradient>
+    <linearGradient id="skin4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE0BD"/>
+      <stop offset="100%" stop-color="#F2C193"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="96" fill="url(#bg4)"/>
+  <circle cx="100" cy="100" r="95" stroke="#00D1B2" stroke-width="2" stroke-opacity="0.4" fill="none"/>
+  <!-- Hair Base -->
+  <path d="M70 82 C70 50, 130 50, 130 82 L130 96 L70 96 Z" fill="#D2A478"/>
+  <!-- Shoulders / Sweater -->
+  <path d="M42 186 C48 142, 72 134, 100 134 C128 134, 152 142, 158 186 Z" fill="#1B2547"/>
+  <!-- Neck -->
+  <rect x="88" y="118" width="24" height="20" rx="3" fill="#F2C193"/>
+  <!-- Crewneck ring -->
+  <path d="M82 136 C82 146, 118 146, 118 136 Z" fill="#6C5CE7"/>
+  <!-- Face -->
+  <ellipse cx="100" cy="94" rx="27" ry="32" fill="url(#skin4)"/>
+  <!-- Textured hair -->
+  <path d="M72 75 C80 55, 125 55, 128 75 C120 62, 108 60, 98 60 C88 60, 78 65, 72 75 Z" fill="#B58356"/>
+</svg>

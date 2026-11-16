@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7675"/>
+      <stop offset="100%" stop-color="#6C5CE7"/>
+    </linearGradient>
+    <linearGradient id="skin3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D99B72"/>
+      <stop offset="100%" stop-color="#B87346"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="96" fill="url(#bg3)"/>
+  <circle cx="100" cy="100" r="95" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.3" fill="none"/>
+  <!-- Hair Behind -->
+  <path d="M60 85 C60 40, 140 40, 140 85 C142 120, 145 155, 142 175 L58 175 C55 155, 58 120, 60 85 Z" fill="#1A1822"/>
+  <!-- Shoulders / Blazer -->
+  <path d="M42 186 C48 142, 72 134, 100 134 C128 134, 152 142, 158 186 Z" fill="#6C5CE7"/>
+  <!-- Inner shirt -->
+  <path d="M86 134 L100 162 L114 134 Z" fill="#F5F7FF"/>
+  <!-- Neck -->
+  <path d="M88 118 L112 118 L108 136 L92 136 Z" fill="#B87346"/>
+  <!-- Face -->
+  <ellipse cx="100" cy="94" rx="27" ry="32" fill="url(#skin3)"/>
+  <!-- Hair Front Bangs -->
+  <path d="M72 82 C85 64, 120 64, 128 82 C120 72, 105 70, 96 74 C86 78, 78 80, 72 82 Z" fill="#2D283E"/>
+  <!-- Earring accents -->
+  <circle cx="71" cy="98" r="3.5" fill="#00D1B2"/>
+  <circle cx="129" cy="98" r="3.5" fill="#00D1B2"/>
+</svg>

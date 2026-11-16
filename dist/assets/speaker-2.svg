@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D1B2"/>
+      <stop offset="100%" stop-color="#0F4C81"/>
+    </linearGradient>
+    <linearGradient id="skin2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFDFC4"/>
+      <stop offset="100%" stop-color="#F0B58D"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="96" fill="url(#bg2)"/>
+  <circle cx="100" cy="100" r="95" stroke="#6C5CE7" stroke-width="2" stroke-opacity="0.4" fill="none"/>
+  <!-- Hair Base -->
+  <path d="M68 85 C68 55, 132 55, 132 85 L132 105 L68 105 Z" fill="#1C1E24"/>
+  <!-- Shoulders / Turtleneck -->
+  <path d="M40 186 C46 142, 72 132, 100 132 C128 132, 154 142, 160 186 Z" fill="#141B34"/>
+  <!-- Neck / Collar -->
+  <rect x="86" y="118" width="28" height="24" rx="4" fill="#2A3562"/>
+  <!-- Face -->
+  <ellipse cx="100" cy="94" rx="27" ry="32" fill="url(#skin2)"/>
+  <!-- Stylized Hair Cut -->
+  <path d="M70 75 Q100 52 130 72 Q115 62 100 62 Q85 62 70 75 Z" fill="#2A3562"/>
+  <!-- Modern clean beard -->
+  <path d="M84 102 C84 122, 116 122, 116 102 C116 116, 84 116, 84 102 Z" fill="#1C1E24" opacity="0.8"/>
+</svg>
