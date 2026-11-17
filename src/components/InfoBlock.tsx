@@ -15,12 +15,12 @@ export function InfoBlock({
   valueMono = false,
 }: InfoBlockProps) {
   return (
-    <Column style={{ gap: 3 }}>
+    <Column style={{ gap: 4 }}>
       <Text
         style={{
           fontFamily: currentTheme.fonts.mono,
-          fontSize: 10,
-          fontWeight: 700,
+          fontSize: 11,
+          fontWeight: 500,
           color: currentTheme.colors.textMuted,
           letterSpacing: 1.5,
           textTransform: "uppercase",
@@ -31,8 +31,8 @@ export function InfoBlock({
       <Text
         style={{
           fontSize: currentTheme.type.body,
-          fontWeight: 700,
-          fontFamily: valueMono ? currentTheme.fonts.mono : undefined,
+          fontWeight: 600,
+          fontFamily: valueMono ? currentTheme.fonts.mono : currentTheme.fonts.body,
           color: accentValue ? currentTheme.colors.accent : currentTheme.colors.text,
           lineHeight: 1.3,
         }}

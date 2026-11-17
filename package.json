@@ -7,7 +7,7 @@
     "build": "tsx src/build.tsx && tsx src/render-assets.ts",
     "build:html": "tsx src/build.tsx",
     "preview": "serve dist",
-    "theme:daylight": "THEME=daylight npm run build",
+    "theme:ink": "THEME=ink npm run build",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

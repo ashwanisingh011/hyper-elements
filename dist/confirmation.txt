@@ -1,99 +1,58 @@
-DISPATCH // NO. 07
+Northwind Summit
 
-38°42'N 9°08'W · LISBON
-
-NORTHWIND
-
-A monograph on software architecture, craft, and the next decade of computing
-
----
-
----
-
-DELEGATE CONFIRMATION & ACCESS BRIEFING
+March 18–19, 2027
 
 YOUR SEAT IS CONFIRMED, ALEX MORGAN
 
 Two days on the Lisbon waterfront with two thousand engineers, forty speakers, and your confirmed access to The Foundry.
 
-The Foundry was built to cast heavy ocean steel. Next March, we gather in its vaulted stone halls to examine what makes software systems weather their own decades: how high-performing teams avoid organizational entropy, why foundational design outlasts marketing cycles, and what happens when software is authored with twenty-year longevity in mind.
+---
 
-Your registration for the Professional tier is officially confirmed. Below you will find your digital boarding credentials, allocated seating block, and fast-track instructions for Day 1.
+Booking details
 
-OFFICIAL ACCESS CREDENTIALS
+Delegate
 
-CONFIRMED // FAST-TRACK
+Alex Morgan
 
-Alex Morgan — Professional Pass
+Tier
 
-Order #NWS-2027-004218 · Issued January 12, 2027 · Total €349.00
+Professional
+
+Order
+
+NWS-2027-004218
+
+Seat
+
+Block B · Row 7 · Seat 12
+
+Total paid
+
+€349.00
+
+Venue
+
+The Foundry, Lisbon
 
 ---
 
-DELEGATE ALLOCATION
+What to bring
 
-- Seat: Block B · Row 7 · Seat 12
-- Access: All talks, workshops, speaker dinner
-- Venue: The Foundry, 42 Harbor Street, Lisbon
-- Dates: March 18–19, 2027
-
-CHECK-IN CHECKLIST
-
-1. Pass QR Code: Digital wallet pass or printed DL PDF
-2. Photo ID: Government-issued ID matching delegate name
-3. Hardware: Laptop and charger for interactive labs
+- QR Code: Digital wallet pass or printed PDF
+- Photo ID: Government-issued, matching delegate name
+- Hardware: Laptop and charger for interactive labs
 
 ---
 
-Download PDF Pass with Barcode → (https://example.com/ticket.pdf)
-
-Add to Calendar (https://example.com/calendar)
-
-“We do not build software for the moment of its launch. We build it for the quiet years that follow.”
-
-Maya Okonkwo // Principal Engineer, Lumen Labs
-
-CURATED DAY 1 PROGRAM // LISBON
-
-01
-
-09:30
-
-The Next Decade: Opening Keynote
-
-Maya Okonkwo · Principal Engineer, Lumen Labs
-
-02
-
-10:45
-
-Designing for Humans and Autonomous Agents
-
-Daniel Reyes · Head of Design, Parallel
-
-03
-
-13:30
-
-Scaling Teams Without Scaling Chaos
-
-Priya Nair · CTO, Kestrel Health
-
-04
-
-15:00
-
-Shipping Small, Learning Fast
-
-Jonas Lindqvist · Founder, Fjord Systems
-
-Until March in Lisbon,
-The Northwind Curators
+Download your pass (https://example.com/ticket.pdf)
 
 ---
 
----
+See you in Lisbon,
+The Northwind Team
 
-Northwind Summit 2027 · The Foundry, 42 Harbor Street, Lisbon, Portugal
-Official delegate pass issued to Alex Morgan (alex@example.com).
-Web Edition (https://northwind.example/2027) // Support (https://northwind.example/support) // Transfer Pass (https://northwind.example/transfer)
+Northwind Summit 2027
+The Foundry, 42 Harbor Street, Lisbon
+Issued to Alex Morgan (alex@example.com)
+
+Web (https://northwind.example/2027) · Support (https://northwind.example/support) · Transfer (https://northwind.example/transfer)

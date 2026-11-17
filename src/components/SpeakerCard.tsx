@@ -1,4 +1,4 @@
-import { Column, Heading, Image, Row, Text } from "@hyper-elements/react";
+import { Column, Heading, Image, Text } from "@hyper-elements/react";
 import { currentTheme } from "../tokens.js";
 
 interface SpeakerCardProps {
@@ -10,8 +10,6 @@ interface SpeakerCardProps {
 }
 
 export function SpeakerCard({ id, name, role, company, avatar }: SpeakerCardProps) {
-  const indexStr = id ? `[${id.replace("speaker-", "0")}]` : "";
-
   return (
     <Column
       style={{
@@ -20,42 +18,40 @@ export function SpeakerCard({ id, name, role, company, avatar }: SpeakerCardProp
         borderRadius: currentTheme.radius,
         padding: 24,
         gap: 16,
-        alignItems: "start",
+        alignItems: "center",
+        textAlign: "center",
         flex: 1,
       }}
     >
-      <Row stackOnMobile={false} style={{ width: "100%", justifyContent: "space-between", alignItems: "center" }}>
+      {/* Circle avatar with 1px ink ring */}
+      <Column
+        style={{
+          width: 80,
+          height: 80,
+          borderRadius: 40,
+          border: `1px solid ${currentTheme.colors.text}`,
+          overflow: "hidden",
+          alignItems: "center",
+        }}
+      >
         <Image
           src={{ src: avatar, width: 200, height: 200 }}
           alt={name}
           style={{
-            width: 72,
-            height: 72,
-            borderRadius: 4,
-            border: `1px solid ${currentTheme.colors.border}`,
+            width: 78,
+            height: 78,
+            borderRadius: 39,
           }}
         />
-        {indexStr && (
-          <Text
-            style={{
-              fontFamily: currentTheme.fonts.mono,
-              fontSize: 11,
-              fontWeight: 700,
-              color: currentTheme.colors.accent,
-            }}
-          >
-            {indexStr}
-          </Text>
-        )}
-      </Row>
+      </Column>
 
-      <Column style={{ gap: 4, width: "100%" }}>
+      <Column style={{ gap: 4, width: "100%", alignItems: "center" }}>
         <Heading
           level={3}
           style={{
-            fontFamily: currentTheme.fonts.heading,
-            fontSize: currentTheme.type.h3,
-            fontWeight: 600,
+            fontFamily: currentTheme.fonts.display,
+            fontSize: 20,
+            fontWeight: 500,
             color: currentTheme.colors.text,
             lineHeight: 1.2,
           }}
@@ -64,9 +60,12 @@ export function SpeakerCard({ id, name, role, company, avatar }: SpeakerCardProp
         </Heading>
         <Text
           style={{
-            fontSize: currentTheme.type.small,
-            fontWeight: 600,
-            color: currentTheme.colors.accent,
+            fontFamily: currentTheme.fonts.mono,
+            fontSize: 11,
+            fontWeight: 500,
+            color: currentTheme.colors.textMuted,
+            letterSpacing: 1,
+            textTransform: "uppercase",
           }}
         >
           {role}

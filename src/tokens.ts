@@ -1,9 +1,9 @@
-import { AppTheme, daylightTheme, midnightTheme } from "./themes.js";
+import { AppTheme, inkTheme, paperTheme } from "./themes.js";
 
-const selectedThemeName = process.env.THEME === "daylight" ? "daylight" : "midnight";
-export const currentTheme: AppTheme = selectedThemeName === "daylight" ? daylightTheme : midnightTheme;
+const selectedThemeName = process.env.THEME === "ink" ? "ink" : "paper";
+export const currentTheme: AppTheme = selectedThemeName === "ink" ? inkTheme : paperTheme;
 
 export function getTheme(themeName?: string): AppTheme {
-  if (themeName === "daylight") return daylightTheme;
-  return midnightTheme;
+  if (themeName === "ink") return inkTheme;
+  return paperTheme;
 }

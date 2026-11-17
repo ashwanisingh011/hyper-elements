@@ -13,7 +13,7 @@ export function ScheduleRow({ time, title, speaker, isLast = false }: ScheduleRo
     <Row
       stackOnMobile={true}
       style={{
-        padding: [18, 20],
+        padding: [20, 24],
         alignItems: "center",
         justifyContent: "space-between",
         border: isLast ? undefined : { bottom: `1px solid ${currentTheme.colors.border}` },
@@ -21,36 +21,43 @@ export function ScheduleRow({ time, title, speaker, isLast = false }: ScheduleRo
         width: "100%",
       }}
     >
-      <Column style={{ width: 100, flex: "none" }}>
+      {/* Time in mono */}
+      <Column style={{ width: 80, flex: "none" }}>
         <Text
           style={{
             fontFamily: currentTheme.fonts.mono,
-            fontSize: currentTheme.type.body,
-            fontWeight: 700,
-            color: currentTheme.colors.accent,
+            fontSize: 14,
+            fontWeight: 500,
+            color: currentTheme.colors.textMuted,
+            letterSpacing: 0.5,
           }}
         >
           {time}
         </Text>
       </Column>
 
-      <Column style={{ flex: 1, gap: 4 }}>
+      {/* Title in serif 20px */}
+      <Column style={{ flex: 1, gap: 2 }}>
         <Text
           style={{
-            fontSize: currentTheme.type.body,
-            fontWeight: 700,
+            fontFamily: currentTheme.fonts.display,
+            fontSize: 20,
+            fontWeight: 500,
             color: currentTheme.colors.text,
+            lineHeight: 1.3,
           }}
         >
           {title}
         </Text>
       </Column>
 
+      {/* Speaker in muted Inter */}
       <Column style={{ width: 180, alignItems: "end", flex: "none" }}>
         <Text
           style={{
+            fontFamily: currentTheme.fonts.body,
             fontSize: currentTheme.type.small,
-            fontWeight: 500,
+            fontWeight: 400,
             color: currentTheme.colors.textMuted,
             fontStyle: speaker === "n/a" ? "italic" : "normal",
           }}

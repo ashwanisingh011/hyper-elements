@@ -1,4 +1,4 @@
-import { Column, Heading, Text } from "@hyper-elements/react";
+import { Column, Divider, Heading, Row, Text } from "@hyper-elements/react";
 import { currentTheme } from "../tokens.js";
 
 interface SectionTitleProps {
@@ -19,36 +19,56 @@ export function SectionTitle({
   return (
     <Column
       style={{
-        gap: 8,
+        gap: 12,
         alignItems: isCentered ? "center" : "start",
         textAlign: isCentered ? "center" : "left",
         width: "100%",
-        padding: [0, 0, 24, 0],
+        padding: [0, 0, 8, 0],
       }}
     >
-      <Text
+      {/* Numbered eyebrow with extending hairline rule */}
+      <Row
+        stackOnMobile={false}
         style={{
-          fontFamily: currentTheme.fonts.mono,
-          fontSize: currentTheme.type.kicker,
-          fontWeight: 700,
-          color: currentTheme.colors.accent,
-          letterSpacing: 2,
-          textTransform: "uppercase",
+          gap: 16,
+          alignItems: "center",
+          width: "100%",
         }}
       >
-        // {eyebrow}
-      </Text>
+        <Text
+          style={{
+            fontFamily: currentTheme.fonts.mono,
+            fontSize: currentTheme.type.kicker,
+            fontWeight: 500,
+            color: currentTheme.colors.accent,
+            letterSpacing: 1.5,
+            textTransform: "uppercase",
+            flex: "none",
+          }}
+        >
+          {eyebrow}
+        </Text>
+        <Column style={{ flex: 1 }}>
+          <Divider
+            style={{
+              borderTop: `1px solid ${currentTheme.colors.border}`,
+              width: "100%",
+            }}
+          />
+        </Column>
+      </Row>
+
       <Heading
         level={2}
         style={{
-          fontFamily: currentTheme.fonts.heading,
+          fontFamily: currentTheme.fonts.display,
           fontSize: currentTheme.type.h2,
-          lineHeight: 1.15,
-          fontWeight: 600,
+          lineHeight: 1.1,
+          fontWeight: 500,
           letterSpacing: -0.5,
           color: currentTheme.colors.text,
           mobile: {
-            fontSize: 28,
+            fontSize: currentTheme.type.h2Mobile,
           },
         }}
       >
@@ -57,6 +77,7 @@ export function SectionTitle({
       {subtitle && (
         <Text
           style={{
+            fontFamily: currentTheme.fonts.body,
             fontSize: currentTheme.type.body,
             lineHeight: 1.6,
             color: currentTheme.colors.textMuted,

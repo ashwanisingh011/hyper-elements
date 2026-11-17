@@ -1,5 +1,5 @@
 export interface AppTheme {
-  name: "midnight" | "daylight";
+  name: "paper" | "ink";
   colors: {
     bg: string;
     surface: string;
@@ -8,16 +8,19 @@ export interface AppTheme {
     primaryText: string;
     accent: string;
     accentText: string;
+    accentSoft: string;
     text: string;
     textMuted: string;
     border: string;
-    glow: string;
+    darkBg: string;
+    darkText: string;
   };
   fonts: {
-    heading: string;
+    display: string;
     body: string;
-    email: string;
     mono: string;
+    emailDisplay: string;
+    emailBody: string;
   };
   radius: number;
   space: {
@@ -27,41 +30,51 @@ export interface AppTheme {
     lg: number;
     xl: number;
     xxl: number;
+    section: number;
+    sectionMobile: number;
   };
   type: {
     h1: number;
+    h1Mobile: number;
     h1Email: number;
     h2: number;
+    h2Mobile: number;
     h2Email: number;
     h3: number;
     body: number;
     small: number;
     kicker: number;
   };
+  maxWidth: number;
+  emailWidth: number;
 }
 
-export const midnightTheme: AppTheme = {
-  name: "midnight",
+/** "Paper" — warm editorial light theme (default) */
+export const paperTheme: AppTheme = {
+  name: "paper",
   colors: {
-    bg: "#080B11",
-    surface: "#0F1422",
-    surfaceAlt: "#161D31",
-    primary: "#4361EE",
+    bg: "#F5F0E6",
+    surface: "#FFFFFF",
+    surfaceAlt: "#EFE8DA",
+    primary: "#16181D",
     primaryText: "#FFFFFF",
-    accent: "#D4F64E", // Electric Cybernetic Chartreuse / Neon Lime
-    accentText: "#080B11",
-    text: "#F0F4FC",
-    textMuted: "#8391A8",
-    border: "#1E2740",
-    glow: "rgba(212, 246, 78, 0.12)",
+    accent: "#E5472B",
+    accentText: "#FFFFFF",
+    accentSoft: "#FBE3DC",
+    text: "#16181D",
+    textMuted: "#635F57",
+    border: "#DDD6C6",
+    darkBg: "#14171F",
+    darkText: "#F5F0E6",
   },
   fonts: {
-    heading: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+    display: "'Fraunces', Georgia, 'Times New Roman', serif",
     body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-    email: "'Cormorant Garamond', Georgia, 'Times New Roman', serif",
-    mono: "'Space Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace",
+    mono: "'IBM Plex Mono', 'JetBrains Mono', 'SF Mono', Menlo, monospace",
+    emailDisplay: "Georgia, 'Times New Roman', serif",
+    emailBody: "Helvetica, Arial, sans-serif",
   },
-  radius: 6, // Crisp, architectural 6px corners (not generic bulbous pill cards)
+  radius: 12,
   space: {
     xs: 4,
     sm: 8,
@@ -69,41 +82,51 @@ export const midnightTheme: AppTheme = {
     lg: 32,
     xl: 64,
     xxl: 96,
+    section: 96,
+    sectionMobile: 56,
   },
   type: {
-    h1: 64,
-    h1Email: 36,
-    h2: 40,
-    h2Email: 26,
+    h1: 72,
+    h1Mobile: 44,
+    h1Email: 34,
+    h2: 44,
+    h2Mobile: 32,
+    h2Email: 28,
     h3: 22,
     body: 16,
     small: 13,
-    kicker: 11,
+    kicker: 12,
   },
+  maxWidth: 1120,
+  emailWidth: 600,
 };
 
-export const daylightTheme: AppTheme = {
-  name: "daylight",
+/** "Ink" — editorial dark theme */
+export const inkTheme: AppTheme = {
+  name: "ink",
   colors: {
-    bg: "#FAF8F5", // Architectural Alabaster drafting paper
-    surface: "#F2EFE9",
-    surfaceAlt: "#E6E2D8",
-    primary: "#111318", // Carbon black
-    primaryText: "#FAF8F5",
-    accent: "#E63917", // International Bauhaus Vermilion / Terracotta
+    bg: "#12141A",
+    surface: "#1B1E27",
+    surfaceAlt: "#232733",
+    primary: "#F5F0E6",
+    primaryText: "#12141A",
+    accent: "#FF6A4D",
     accentText: "#FFFFFF",
-    text: "#111318",
-    textMuted: "#6B675E",
-    border: "#D8D2C5",
-    glow: "rgba(230, 57, 23, 0.10)",
+    accentSoft: "#2E2019",
+    text: "#F5F0E6",
+    textMuted: "#A3A194",
+    border: "#2C3040",
+    darkBg: "#0A0C10",
+    darkText: "#F5F0E6",
   },
   fonts: {
-    heading: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+    display: "'Fraunces', Georgia, 'Times New Roman', serif",
     body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-    email: "'Cormorant Garamond', Georgia, 'Times New Roman', serif",
-    mono: "'Space Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace",
+    mono: "'IBM Plex Mono', 'JetBrains Mono', 'SF Mono', Menlo, monospace",
+    emailDisplay: "Georgia, 'Times New Roman', serif",
+    emailBody: "Helvetica, Arial, sans-serif",
   },
-  radius: 6,
+  radius: 12,
   space: {
     xs: 4,
     sm: 8,
@@ -111,15 +134,21 @@ export const daylightTheme: AppTheme = {
     lg: 32,
     xl: 64,
     xxl: 96,
+    section: 96,
+    sectionMobile: 56,
   },
   type: {
-    h1: 64,
-    h1Email: 36,
-    h2: 40,
-    h2Email: 26,
+    h1: 72,
+    h1Mobile: 44,
+    h1Email: 34,
+    h2: 44,
+    h2Mobile: 32,
+    h2Email: 28,
     h3: 22,
     body: 16,
     small: 13,
-    kicker: 11,
+    kicker: 12,
   },
+  maxWidth: 1120,
+  emailWidth: 600,
 };

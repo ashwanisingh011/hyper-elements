@@ -14,7 +14,7 @@ export function BrandHeader({
   ctaText,
   variant = "web",
 }: BrandHeaderProps) {
-  const logoSrc = currentTheme.name === "daylight" ? "assets/logo-daylight.svg" : "assets/logo.svg";
+  const logoSrc = currentTheme.name === "ink" ? "assets/logo.svg" : "assets/logo-daylight.svg";
 
   return (
     <Row
@@ -22,28 +22,29 @@ export function BrandHeader({
       style={{
         alignItems: "center",
         justifyContent: "space-between",
-        padding: variant === "print" ? [0, 0, 16, 0] : [20, 0],
+        padding: variant === "print" ? [0, 0, 16, 0] : [24, 0],
         width: "100%",
         gap: 16,
+        border: { bottom: `1px solid ${currentTheme.colors.border}` },
       }}
     >
-      <Column style={{ width: 250 }}>
+      <Column style={{ width: 260 }}>
         <Image
           src={{ src: logoSrc, width: 320, height: 44 }}
           alt="Northwind Summit 2027"
-          style={{ width: 220, height: 30 }}
+          style={{ width: 200, height: 28 }}
         />
       </Column>
 
       {(rightText || (ctaHref && ctaText)) && (
-        <Column style={{ alignItems: "end", gap: 4 }}>
+        <Column style={{ alignItems: "end", gap: 6 }}>
           {rightText && (
             <Text
               style={{
                 fontFamily: currentTheme.fonts.mono,
-                fontSize: 11,
-                color: currentTheme.colors.accent,
-                fontWeight: 700,
+                fontSize: currentTheme.type.kicker,
+                fontWeight: 500,
+                color: currentTheme.colors.textMuted,
                 letterSpacing: 1.5,
                 textTransform: "uppercase",
               }}
@@ -55,16 +56,16 @@ export function BrandHeader({
             <Link
               href={ctaHref}
               style={{
-                fontSize: 12,
-                fontWeight: 700,
-                color: currentTheme.colors.text,
-                textDecoration: "underline",
+                fontSize: currentTheme.type.small,
+                fontWeight: 600,
+                color: currentTheme.colors.accent,
+                textDecoration: "none",
                 hover: {
-                  color: currentTheme.colors.accent,
+                  textDecoration: "underline",
                 },
               }}
             >
-              {ctaText} →
+              {ctaText}
             </Link>
           )}
         </Column>

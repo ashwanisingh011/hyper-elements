@@ -3,13 +3,16 @@ import { eventData, sampleAttendee } from "../data.js";
 import { currentTheme } from "../tokens.js";
 
 export function Ticket() {
-  const isMidnight = currentTheme.name === "midnight";
-  const bg = isMidnight ? "#080B11" : "#FFFFFF";
-  const surface = isMidnight ? "#0F1422" : "#F7F5F0";
-  const text = isMidnight ? "#F0F4FC" : "#111318";
-  const muted = isMidnight ? "#8391A8" : "#6B675E";
-  const border = isMidnight ? "#1E2740" : "#D8D2C5";
-  const accent = currentTheme.colors.accent;
+  const t = currentTheme;
+  const isPaper = t.name === "paper";
+
+  // Ticket always uses paper-like colors for print
+  const bg = isPaper ? "#FFFFFF" : "#1B1E27";
+  const paperBg = isPaper ? "#F5F0E6" : "#12141A";
+  const text = isPaper ? "#16181D" : "#F5F0E6";
+  const muted = isPaper ? "#6B6A63" : "#A3A194";
+  const border = isPaper ? "#DDD6C6" : "#2C3040";
+  const accent = t.colors.accent;
 
   return (
     <Document
@@ -18,241 +21,192 @@ export function Ticket() {
       margin={{ top: 12, right: 12, bottom: 12, left: 12 }}
       title={`Ticket: ${sampleAttendee.name} — ${eventData.name}`}
       style={{
-        backgroundColor: bg,
+        backgroundColor: paperBg,
         color: text,
-        fontFamily: currentTheme.fonts.body,
+        fontFamily: t.fonts.body,
       }}
     >
       <Document.Page
         style={{
-          backgroundColor: bg,
+          backgroundColor: paperBg,
         }}
       >
-        {/* Ticket Outer Container: 210mm x 99mm DL proportion */}
+        {/* Ticket outer container */}
         <Row
           stackOnMobile={false}
           style={{
-            border: `1.5px solid ${border}`,
-            borderRadius: 8,
-            backgroundColor: surface,
+            border: `1px solid ${border}`,
+            borderRadius: t.radius,
+            backgroundColor: bg,
             overflow: "hidden",
             width: "100%",
             height: 340,
           }}
         >
-          {/* 1. Left Color Accent Spine / Lanyard Binding */}
+          {/* 1. Vermilion left accent band */}
           <Column
             style={{
-              width: 14,
+              width: 10,
               backgroundColor: accent,
             }}
           />
 
-          {/* 2. Main Ticket Body */}
+          {/* 2. Main ticket body */}
           <Column
             style={{
               flex: 1,
-              padding: [20, 24],
-              gap: 14,
+              padding: [24, 28],
+              gap: 16,
               justifyContent: "space-between",
             }}
           >
-            {/* Header / Brand & Coordinate Tag */}
+            {/* Header row */}
             <Row stackOnMobile={false} style={{ justifyContent: "space-between", alignItems: "center" }}>
               <Column style={{ gap: 2 }}>
-                <Row stackOnMobile={false} style={{ gap: 10, alignItems: "center" }}>
-                  <Text
-                    style={{
-                      fontFamily: currentTheme.fonts.heading,
-                      fontSize: 22,
-                      fontWeight: 700,
-                      letterSpacing: 2,
-                      color: text,
-                    }}
-                  >
-                    NORTHWIND
-                  </Text>
-                  <Text
-                    style={{
-                      fontFamily: currentTheme.fonts.mono,
-                      fontSize: 10,
-                      fontWeight: 700,
-                      color: accent,
-                      letterSpacing: 1.5,
-                    }}
-                  >
-                    // 2027
-                  </Text>
-                </Row>
                 <Text
                   style={{
-                    fontFamily: currentTheme.fonts.mono,
-                    fontSize: 9,
-                    color: muted,
-                    letterSpacing: 1,
+                    fontFamily: t.fonts.display,
+                    fontSize: 20,
+                    fontWeight: 500,
+                    letterSpacing: -0.3,
+                    color: text,
                   }}
                 >
-                  OFFICIAL ACCESS PASS · 38°42'N 9°08'W
+                  Northwind Summit
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: t.fonts.mono,
+                    fontSize: 10,
+                    fontWeight: 500,
+                    color: muted,
+                    letterSpacing: 1,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Lisbon / March 18–19, 2027
                 </Text>
               </Column>
 
-              {/* Status Badge */}
+              {/* Status pill */}
               <Column
                 style={{
-                  backgroundColor: isMidnight ? "#152011" : "#EAE6DC",
-                  border: `1px solid ${accent}`,
-                  borderRadius: 4,
+                  backgroundColor: isPaper ? "#FBE3DC" : "#2E2019",
+                  borderRadius: 6,
                   padding: "4px 12px",
-                  alignItems: "end",
                 }}
               >
                 <Text
                   style={{
-                    fontFamily: currentTheme.fonts.mono,
-                    fontSize: 11,
-                    fontWeight: 800,
+                    fontFamily: t.fonts.mono,
+                    fontSize: 10,
+                    fontWeight: 600,
                     color: accent,
                     textTransform: "uppercase",
-                    letterSpacing: 1,
+                    letterSpacing: 0.8,
                   }}
                 >
                   {sampleAttendee.tier} Access
                 </Text>
-                <Text
-                  style={{
-                    fontFamily: currentTheme.fonts.mono,
-                    fontSize: 9,
-                    color: muted,
-                  }}
-                >
-                  ORDER #{sampleAttendee.orderNumber}
-                </Text>
               </Column>
             </Row>
 
-            {/* Attendee Name & Seat Block */}
-            <Row stackOnMobile={false} style={{ justifyContent: "space-between", alignItems: "end" }}>
-              <Column style={{ gap: 4 }}>
-                <Text
-                  style={{
-                    fontFamily: currentTheme.fonts.mono,
-                    fontSize: 9,
-                    fontWeight: 700,
-                    color: muted,
-                    letterSpacing: 1.5,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  PASS HOLDER // DELEGATE
-                </Text>
-                <Heading
-                  level={1}
-                  style={{
-                    fontFamily: currentTheme.fonts.heading,
-                    fontSize: 30,
-                    fontWeight: 700,
-                    color: text,
-                    lineHeight: 1.1,
-                    letterSpacing: -0.5,
-                  }}
-                >
-                  {sampleAttendee.name}
-                </Heading>
-              </Column>
+            {/* Attendee name — big serif */}
+            <Column style={{ gap: 4 }}>
+              <Text
+                style={{
+                  fontFamily: t.fonts.mono,
+                  fontSize: 10,
+                  fontWeight: 500,
+                  color: muted,
+                  letterSpacing: 1.5,
+                  textTransform: "uppercase",
+                }}
+              >
+                Pass holder
+              </Text>
+              <Heading
+                level={1}
+                style={{
+                  fontFamily: t.fonts.display,
+                  fontSize: 32,
+                  fontWeight: 500,
+                  color: text,
+                  lineHeight: 1.1,
+                  letterSpacing: -0.5,
+                }}
+              >
+                {sampleAttendee.name}
+              </Heading>
+            </Column>
 
-              <Column style={{ alignItems: "end", gap: 2 }}>
-                <Text
-                  style={{
-                    fontFamily: currentTheme.fonts.mono,
-                    fontSize: 9,
-                    fontWeight: 700,
-                    color: muted,
-                    letterSpacing: 1.5,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  ALLOCATED SEATING
-                </Text>
-                <Text
-                  style={{
-                    fontFamily: currentTheme.fonts.mono,
-                    fontSize: 13,
-                    fontWeight: 800,
-                    color: accent,
-                  }}
-                >
-                  {sampleAttendee.seat}
-                </Text>
-              </Column>
-            </Row>
-
-            {/* Technical Metadata Matrix */}
+            {/* Metadata row */}
             <Row
               stackOnMobile={false}
               style={{
-                backgroundColor: isMidnight ? "#080B11" : "#EFECE4",
+                backgroundColor: isPaper ? "#F5F0E6" : "#12141A",
                 border: `1px solid ${border}`,
-                borderRadius: 4,
-                padding: "8px 14px",
+                borderRadius: 8,
+                padding: "10px 16px",
                 justifyContent: "space-between",
                 alignItems: "center",
               }}
             >
               <Column style={{ gap: 2 }}>
-                <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 8, fontWeight: 700, color: muted, textTransform: "uppercase" }}>
-                  DATES
+                <Text style={{ fontFamily: t.fonts.mono, fontSize: 9, fontWeight: 500, color: muted, textTransform: "uppercase", letterSpacing: 1 }}>
+                  Seat
                 </Text>
-                <Text style={{ fontSize: 11, fontWeight: 700, color: text }}>
-                  {eventData.dates}
-                </Text>
-              </Column>
-
-              <Column style={{ gap: 2 }}>
-                <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 8, fontWeight: 700, color: muted, textTransform: "uppercase" }}>
-                  DOORS
-                </Text>
-                <Text style={{ fontSize: 11, fontWeight: 700, color: text }}>
-                  08:30 GMT · Start 09:30
+                <Text style={{ fontFamily: t.fonts.mono, fontSize: 12, fontWeight: 600, color: text }}>
+                  {sampleAttendee.seat}
                 </Text>
               </Column>
 
               <Column style={{ gap: 2 }}>
-                <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 8, fontWeight: 700, color: muted, textTransform: "uppercase" }}>
-                  VENUE
+                <Text style={{ fontFamily: t.fonts.mono, fontSize: 9, fontWeight: 500, color: muted, textTransform: "uppercase", letterSpacing: 1 }}>
+                  Order
                 </Text>
-                <Text style={{ fontSize: 11, fontWeight: 700, color: text }}>
+                <Text style={{ fontFamily: t.fonts.mono, fontSize: 12, fontWeight: 600, color: text }}>
+                  {sampleAttendee.orderNumber}
+                </Text>
+              </Column>
+
+              <Column style={{ gap: 2 }}>
+                <Text style={{ fontFamily: t.fonts.mono, fontSize: 9, fontWeight: 500, color: muted, textTransform: "uppercase", letterSpacing: 1 }}>
+                  Venue
+                </Text>
+                <Text style={{ fontSize: 12, fontWeight: 600, color: text }}>
                   The Foundry, Lisbon
                 </Text>
               </Column>
             </Row>
 
-            {/* Bottom Barcode Strip & Notice */}
+            {/* Bottom: notice + barcode */}
             <Row stackOnMobile={false} style={{ justifyContent: "space-between", alignItems: "center" }}>
-              <Text style={{ fontSize: 8.5, color: muted, maxWidth: 360, lineHeight: 1.3 }}>
-                Admit one. Grants access to all main-stage keynotes, technical workshops, and catering. Carry photo ID for badge printing.
+              <Text style={{ fontSize: 9, color: muted, maxWidth: 340, lineHeight: 1.4 }}>
+                Admit one. Grants access to all keynotes, workshops, and catering. Carry photo ID for badge printing.
               </Text>
               <Image
                 src={{ src: "assets/barcode.svg", width: 240, height: 60 }}
                 alt="Barcode"
-                style={{ width: 140, height: 26 }}
+                style={{ width: 120, height: 24 }}
               />
             </Row>
           </Column>
 
-          {/* 3. Perforated Security Divider */}
+          {/* 3. Perforated tear-line (1px dashed) */}
           <Column
             style={{
               width: 1,
-              border: { left: `2px dashed ${border}` },
+              border: { left: `1px dashed ${border}` },
             }}
           />
 
-          {/* 4. Right Security Tear-Off Stub */}
+          {/* 4. Right stub with QR */}
           <Column
             style={{
-              width: 155,
-              backgroundColor: isMidnight ? "#080B11" : "#EFECE4",
-              padding: [16, 14],
+              width: 150,
+              backgroundColor: isPaper ? "#F5F0E6" : "#12141A",
+              padding: [20, 16],
               alignItems: "center",
               justifyContent: "space-between",
               textAlign: "center",
@@ -261,33 +215,39 @@ export function Ticket() {
             <Column style={{ gap: 2, alignItems: "center" }}>
               <Text
                 style={{
-                  fontFamily: currentTheme.fonts.mono,
+                  fontFamily: t.fonts.mono,
                   fontSize: 9,
-                  fontWeight: 800,
-                  color: text,
-                  letterSpacing: 1.5,
+                  fontWeight: 600,
+                  color: muted,
+                  letterSpacing: 1,
                   textTransform: "uppercase",
                 }}
               >
-                GATE SCAN // 01
-              </Text>
-              <Text style={{ fontFamily: currentTheme.fonts.mono, fontSize: 8, color: accent }}>
-                FAST-TRACK PASS
+                Gate scan
               </Text>
             </Column>
 
-            <Image
-              src={{ src: "assets/qr-placeholder.svg", width: 200, height: 200 }}
-              alt="Gate QR"
-              style={{ width: 100, height: 100, borderRadius: 4 }}
-            />
+            {/* QR with 1px frame */}
+            <Column
+              style={{
+                border: `1px solid ${border}`,
+                borderRadius: 4,
+                padding: 4,
+              }}
+            >
+              <Image
+                src={{ src: "assets/qr-placeholder.svg", width: 200, height: 200 }}
+                alt="Gate QR"
+                style={{ width: 90, height: 90 }}
+              />
+            </Column>
 
             <Column style={{ gap: 2, alignItems: "center" }}>
               <Text
                 style={{
-                  fontFamily: currentTheme.fonts.mono,
+                  fontFamily: t.fonts.mono,
                   fontSize: 10,
-                  fontWeight: 800,
+                  fontWeight: 600,
                   color: text,
                 }}
               >
@@ -295,14 +255,14 @@ export function Ticket() {
               </Text>
               <Text
                 style={{
-                  fontFamily: currentTheme.fonts.mono,
-                  fontSize: 7.5,
+                  fontFamily: t.fonts.mono,
+                  fontSize: 8,
                   color: muted,
                   letterSpacing: 0.5,
                   textTransform: "uppercase",
                 }}
               >
-                NON-TRANSFERABLE
+                Non-transferable
               </Text>
             </Column>
           </Column>
